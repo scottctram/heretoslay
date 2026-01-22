@@ -1,0 +1,75 @@
+:root {
+    --hero-w: 2.5in; --hero-h: 3.5in;
+    --monst-w: 4.8in; --monst-h: 3.4in;
+    --magic: #797672; --item: #3f3f3f;
+    --cursed: #3f3f3f; --drink: #e67e22;
+    --challenge: #f4f2e6; --hero-color: #8CC63F;
+    --fght-color: #8e2b30;
+    --guar-color: #e5ab26;
+    --thif-color: #004b7c;
+    --rang-color: #215d39;
+    --bard-color: #c84d2c;
+    --wiz-color: #762a8c;
+}
+
+body { background: #1a1a1a; font-family: 'Segoe UI', Arial, sans-serif; padding: 40px; color: white; text-align: center; }
+
+.controls { margin-bottom: 30px; position: sticky; top: 0; background: #1a1a1a; padding: 15px; z-index: 10; border-bottom: 1px solid #333; }
+
+.btn { background: #e74c3c; color: white; border: none; padding: 15px 40px; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4); transition: transform 0.2s; }
+.btn:hover { background: #c0392b; transform: translateY(-2px); }
+
+.deck-grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; padding-top: 20px; }
+
+.source-container { position: absolute; left: -9999px; top: 0; }
+
+/* Card CSS Styles */
+.card { background: #fff; border: 8px solid #222; border-radius: 15px; display: flex; flex-direction: column; overflow: hidden; color: #222; text-align: left; }
+.hero-size { width: var(--hero-w); height: var(--hero-h); }
+.monster-size { width: var(--monst-w); height: var(--monst-h); }
+
+.header { height: 50px; display: flex; align-items: center; padding: 0 12px; border-bottom: 3px solid #222; background: #fafafa; }
+.icon { width: 32px; height: 32px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 10px; border: 2px solid #222; font-size: 18px; }
+.name { font-weight: 900; text-transform: uppercase; font-size: 13px; letter-spacing: -0.5px; }
+
+/* Stacking logic for name and type */
+.name-stack { display: flex; flex-direction: column; justify-content: center; flex-grow: 1; }
+
+.art { flex-grow: 1; background: #eee; display: flex; align-items: center; justify-content: center; color: #ccc; border-bottom: 3px solid #222; font-style: italic; }
+.body { padding: 12px; font-size: 13px; line-height: 1.4; background: white; min-height: 80px; }
+
+/* Monster Layout */
+.m-layout { display: flex; height: 100%; }
+.m-side { width: 30%; background: #f0f0f0; border-right: 3px solid #222; display: flex; flex-direction: column; align-items: center; padding: 15px 5px; }
+.m-main { width: 70%; display: flex; flex-direction: column; }
+.req-title { font-size:10px; font-weight:bold; }
+.tag { background: #222; color: white; padding: 5px; margin-top: 8px; width: 85%; text-align: center; border-radius: 4px; font-size: 11px; font-weight: bold; }
+
+/* Card Types Styling */
+.card-type-magic, .card-type-item, .card-type-curse, .card-type-hero-fght, .card-type-hero-guar, .card-type-hero-thif, .card-type-hero-rang, .card-type-hero-bard, .card-type-hero-wiz {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-top: 2px;
+}
+.card-type-magic { color: #797672; }
+.card-type-item { color: #11a5aa; }
+.card-type-curse { color: #792a77; }
+.card-type-hero-fght { color: var(--fght-color); }
+.card-type-hero-guar { color: var(--guar-color); }
+.card-type-hero-thif { color: var(--thif-color); }
+.card-type-hero-rang { color: var(--rang-color); }
+.card-type-hero-bard { color: var(--bard-color); }
+.card-type-hero-wiz { color: var(--wiz-color); }
+
+
+
+/* Modifier Flex */
+.modifier-flex { display: flex; justify-content: center; align-items: center; gap: 15px; }
+.modifier-flex h2 { margin: 0; }
+
+/* Image Preview */
+.rendered-img { border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.6); transition: 0.3s; }
+.rendered-img:hover { transform: scale(1.05); }

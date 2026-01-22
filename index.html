@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Here to Slay: Scole Party Edition</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="controls">
+        <h1>Here to Slay: Scole Party Edition</h1>
+        <button class="btn" onclick="generateImages()">Render Deck for Saving</button>
+        <p id="status" style="margin-top:15px; opacity: 0.8;">Click render, then <b>Right-Click > Save Image As</b> on any card.</p>
+    </div>
+
+    <div class="deck-grid" id="display-grid">
+        <p style="opacity:0.3; margin-top: 50px;">[ Waiting for render... ]</p>
+    </div>
+
+    <div class="source-container" id="source-deck">
+        
+		
+		<div class="card hero-size" style="border-color: var(--fght-color);">
+			<div class="header"> 
+				<div class="icon" style="background: var(--fght-color);">⚔️</div> 
+				<div class="name-stack">
+				<div class="name">Drunken Brawler</div>
+				<div class="card-type-hero-fght">Hero: Brawler</div>
+			</div>
+		</div>
+			<div class="art">Brawler Art</div>
+			<div class="body"><b>Roll 7+:</b> + 2 to your Rolls for each shot you take until your next turn.</div>
+		</div>
+		
+		<div class="card hero-size" style="border-color: var(--guar-color);">
+			<div class="header"> 
+				<div class="icon" style="background: var(--guar-color);">🛡️</div> 
+				<div class="name-stack">
+				<div class="name">The Designated Driver</div>
+				<div class="card-type-hero-guar">Hero: Guardian</div>
+			</div>
+		</div>
+			<div class="art">Guardian Art</div>
+			<div class="body"><b>Roll 7+:</b> Negate all shots until your next turn & +2 to all of your rolls until your next turn.</div>
+		</div>
+		
+		<div class="card hero-size" style="border-color: var(--thif-color);">
+			<div class="header"> 
+				<div class="icon" style="background: var(--thif-color);">🗡</div> 
+				<div class="name-stack">
+				<div class="name">The Flask Flicher</div>
+				<div class="card-type-hero-thif">Hero: Thief</div>
+			</div>
+		</div>
+			<div class="art">Thief Art</div>
+			<div class="body"><b>Roll 9+:</b> Steal a card from a player's hand. That player must take a sip to "forget" what they lost.</div>
+		</div>
+		
+		<div class="card hero-size" style="border-color: var(--rang-color);">
+			<div class="header"> 
+				<div class="icon" style="background: var(--rang-color);">🏹</div> 
+				<div class="name-stack">
+				<div class="name">The Sober Scout</div>
+				<div class="card-type-hero-rang">Hero: Ranger</div>
+			</div>
+		</div>
+			<div class="art">Ranger Art</div>
+			<div class="body"><b>Roll 8+:</b> Pick up 2 cards, if any of those cards were Item Cards, Pick a player to take a shot.</div>
+		</div>
+		
+		
+
+
+
+        <div class="card hero-size" style="border-color: var(--magic);">
+            <div class="header"> 
+                <div class="icon" style="background: var(--magic);">✨</div> 
+                <div class="name-stack">
+                    <div class="name">Bottomless Pitcher</div>
+                    <div class="card-type-magic">Magic</div>
+                </div>
+            </div>
+            <div class="art">Magic Image</div>
+            <div class="body">Choose any player to take a shot. You may pull one Hero card from the discard pile.</div>
+        </div>
+
+        <div class="card hero-size" style="border-color: var(--item);">
+            <div class="header"> 
+                <div class="icon" style="background: var(--item);">🛡️</div> 
+                <div class="name-stack">
+                    <div class="name">Frothy Helmet</div>
+                    <div class="card-type-item">Item</div>
+                </div>
+            </div>
+            <div class="art">Item Image</div>
+            <div class="body"><b>EQUIP:</b> If a player tries to destroy or steal this card, they must take 2 shots.</div>
+        </div>
+
+        <div class="card hero-size" style="border-color: var(--cursed);">
+            <div class="header"> 
+                <div class="icon" style="background: var(--cursed);">💀</div> 
+                <div class="name-stack">
+                    <div class="name">Leaky Boots</div>
+                    <div class="card-type-curse">Cursed Item</div>
+                </div>
+            </div>
+            <div class="art">Cursed Image</div>
+            <div class="body"><b>CURSE:</b> Every time this Hero uses an ability, its owner must take a shot.</div>
+        </div>
+
+        <div class="card hero-size" style="border-color: #2980b9;">
+            <div class="header"> 
+                <div class="icon" style="background: #2980b9;">⚖️</div> 
+                <div class="name-stack"><div class="name">Small Sip</div></div>
+            </div>
+            <div class="art">+/- 2 Image</div>
+            <div class="body" style="text-align:center;">
+                <div class="modifier-flex">
+                    <h2 style="color: #27ae60;">+2</h2>
+                    <h2> or </h2>
+                    <h2 style="color: #c0392b;">-2</h2>
+                </div>
+                Modifier (Play after a roll). You must take a <strong>sip</strong> to influence the result.
+            </div>
+        </div>
+
+        <div class="card monster-size" style="border-color: #222;">
+            <div class="m-layout">
+                <div class="m-side">
+                    <span class="req-title">REQS:</span>
+                    <div class="tag">⚔️ ⚔️</div>
+                    <div class="tag">+ 1 SHOT</div>
+                </div>
+                <div class="m-main">
+                    <div class="header"> <div class="icon" style="background: #222;">🐲</div> <div class="name">Hangover Dragon</div> </div>
+                    <div class="art">Monster Image</div>
+                    <div class="body"><b>SLAY:</b> Every other player takes a shot.<br><b>FAIL:</b> Skip your next turn to recover.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
